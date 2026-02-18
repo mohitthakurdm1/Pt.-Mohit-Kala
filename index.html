@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pandit Mohit Kala – Vedic Astrologer & Purohit. Book puja, havan, kundali reading, griha pravesh and all sacred ceremonies.">
+<title>Pandit Mohit Kala – Vedic Astrologer & Purohit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS VARIABLES
+============================================================ */
+:root {
+  --saffron: #E8541A;
+  --deep-saffron: #C13B0A;
+  --gold: #D4A017;
+  --bright-gold: #F5C842;
+  --cream: #FDF6E3;
+  --dark: #1A0A00;
+  --maroon: #6B1A1A;
+  --light-bg: #FFF8EE;
+  --header-h: 65px;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Lora', serif;
+  background: var(--light-bg);
+  color: var(--dark);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   HEADER
+============================================================ */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 1000;
+  background: rgba(26,10,0,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--gold);
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--bright-gold);
+  font-size: clamp(0.75rem, 2.5vw, 1.05rem);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+.logo span {
+  display: block;
+  font-size: 0.58rem;
+  color: var(--gold);
+  letter-spacing: 2.5px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+}
+
+.desktop-nav { display: flex; align-items: center; }
+.desktop-nav a {
+  color: var(--cream);
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 22px;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+.desktop-nav a:hover { color: var(--bright-gold); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 26px; height: 2.5px;
+  background: var(--bright-gold);
+  border-radius: 2px;
+  transition: all 0.35s;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--header-h); left: 0; right: 0;
+  background: rgba(26,10,0,0.98);
+  border-bottom: 2px solid var(--gold);
+  flex-direction: column;
+  padding: 16px 0;
+  z-index: 999;
+  transform: translateY(-110%);
+  transition: transform 0.35s ease;
+}
+.mobile-nav.open { transform: translateY(0); }
+.mobile-nav a {
+  color: var(--cream);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 15px 8%;
+  border-bottom: 1px solid rgba(212,160,23,0.15);
+  transition: color 0.2s, background 0.2s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--bright-gold); background: rgba(212,160,23,0.06); }
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1A0A00 0%, #3D1A00 45%, #1A0A00 100%);
+  padding-top: var(--header-h);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 55% 50%, rgba(212,160,23,0.07) 0%, transparent 65%),
+              radial-gradient(circle at 85% 15%, rgba(232,84,26,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 50px;
+  padding: 50px 8% 60px; width: 100%;
+}
+.hero-img-wrap {
+  flex-shrink: 0; position: relative;
+  width: min(380px, 42vw);
+}
+.hero-img-frame {
+  position: relative; border-radius: 14px; overflow: hidden;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 8px rgba(212,160,23,0.12), 0 0 60px rgba(232,84,26,0.28), 0 28px 70px rgba(0,0,0,0.55);
+}
+.hero-img-frame img {
+  width: 100%;
+  height: clamp(300px, 50vw, 560px);
+  object-fit: cover; object-position: top center;
+}
+.hero-img-frame::before,
+.hero-img-frame::after {
+  content: '✦'; position: absolute;
+  color: var(--bright-gold); font-size: 1.4rem; z-index: 3; line-height: 1;
+}
+.hero-img-frame::before { top: 8px; left: 10px; }
+.hero-img-frame::after  { bottom: 8px; right: 10px; }
+.hero-badge {
+  position: absolute; top: -12px; right: -12px;
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: #fff; font-family: 'Cinzel', serif; font-size: 0.6rem;
+  letter-spacing: 1.5px; padding: 7px 12px; border-radius: 4px;
+  border: 2px solid var(--bright-gold); box-shadow: 0 4px 16px rgba(232,84,26,0.5);
+  transform: rotate(3deg); text-transform: uppercase; z-index: 4; white-space: nowrap;
+}
+.hero-text { flex: 1; min-width: 0; }
+.hero-om {
+  font-size: clamp(2rem, 5vw, 3rem); color: var(--gold); opacity: 0.75;
+  margin-bottom: 6px; animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%,100% { opacity:.75; text-shadow: 0 0 18px rgba(212,160,23,.5); }
+  50%      { opacity:1;   text-shadow: 0 0 36px rgba(212,160,23,.9); }
+}
+.hero-sub {
+  font-family: 'Cinzel', serif; color: var(--gold);
+  letter-spacing: 3px; font-size: clamp(0.58rem, 1.5vw, 0.75rem);
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.hero-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(1.55rem, 4.5vw, 3rem); font-weight: 900;
+  color: var(--cream); line-height: 1.2; margin-bottom: 6px;
+}
+.hero-title span { display: block; color: var(--bright-gold); font-size: 1.12em; }
+.hero-tagline {
+  font-family: 'Lora', serif; font-style: italic; color: var(--gold);
+  font-size: clamp(0.82rem, 2vw, 1.05rem); margin: 14px 0 20px;
+  padding-left: 16px; border-left: 3px solid var(--saffron);
+}
+.hero-desc {
+  color: rgba(253,246,227,0.8); font-size: clamp(0.8rem, 1.8vw, 0.94rem);
+  line-height: 1.85; margin-bottom: 28px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: clamp(10px,2vw,14px) clamp(18px,3vw,30px);
+  border-radius: 6px; font-family: 'Cinzel', serif;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem); letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; transition: all 0.3s; border: none; white-space: nowrap;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: #fff; box-shadow: 0 4px 18px rgba(232,84,26,0.4);
+}
+.btn-primary:hover  { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,84,26,0.6); }
+.btn-secondary { background: transparent; color: var(--bright-gold); border: 2px solid var(--gold); }
+.btn-secondary:hover { background: rgba(212,160,23,0.1); transform: translateY(-2px); }
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+.divider { height: 3px; background: linear-gradient(to right, transparent, var(--gold), var(--saffron), var(--gold), transparent); }
+
+/* ============================================================
+   STATS BAR
+============================================================ */
+.stats-bar {
+  background: var(--dark); padding: 24px 5%;
+  display: flex; justify-content: center; align-items: center;
+  gap: clamp(20px,6vw,80px); flex-wrap: wrap; border-bottom: 2px solid var(--maroon);
+}
+.stat-item { text-align: center; }
+.stat-num { font-family: 'Cinzel Decorative', cursive; font-size: clamp(1.4rem,4vw,2rem); color: var(--bright-gold); display: block; line-height: 1; }
+.stat-label { font-family: 'Cinzel', serif; font-size: clamp(0.55rem,1.4vw,0.7rem); letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-top: 5px; }
+
+/* ============================================================
+   SECTIONS COMMON
+============================================================ */
+section { padding: clamp(48px,8vw,88px) clamp(5%,8%,100px); }
+.section-header { text-align: center; margin-bottom: clamp(32px,6vw,58px); }
+.section-badge { font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.4vw,0.72rem); letter-spacing: 5px; color: var(--saffron); text-transform: uppercase; display: block; margin-bottom: 10px; }
+.section-title { font-family: 'Cinzel Decorative', cursive; font-size: clamp(1.3rem,4vw,2.3rem); color: var(--dark); line-height: 1.3; }
+.section-title.light { color: var(--cream); }
+.section-line { width: 70px; height: 3px; background: linear-gradient(to right,var(--saffron),var(--gold)); margin: 12px auto 0; border-radius: 2px; }
+
+/* ============================================================
+   ABOUT
+============================================================ */
+.about-section { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px,5vw,60px); align-items: center; max-width: 1100px; margin: 0 auto; }
+.about-img-wrap { position: relative; }
+.about-img-frame { border-radius: 14px; overflow: hidden; border: 3px solid var(--gold); box-shadow: 10px 10px 0 var(--saffron), 0 20px 50px rgba(0,0,0,0.15); }
+.about-img-frame img { width: 100%; height: clamp(260px,40vw,480px); object-fit: cover; object-position: top; }
+.about-ornament {
+  position: absolute; bottom: -16px; right: -16px;
+  width: 66px; height: 66px; background: var(--saffron); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+  border: 3px solid var(--bright-gold); box-shadow: 0 4px 18px rgba(232,84,26,0.4); z-index: 2;
+}
+.about-text h3 { font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.4vw,0.75rem); letter-spacing: 4px; color: var(--saffron); text-transform: uppercase; margin-bottom: 10px; }
+.about-text h2 { font-family: 'Cinzel Decorative', cursive; font-size: clamp(1.2rem,3vw,1.8rem); color: var(--dark); margin-bottom: 16px; line-height: 1.3; }
+.about-text p { color: #4A3020; line-height: 1.9; margin-bottom: 13px; font-size: clamp(0.82rem,1.8vw,0.95rem); }
+.about-highlight {
+  background: linear-gradient(135deg,rgba(232,84,26,0.07),rgba(212,160,23,0.07));
+  border-left: 4px solid var(--saffron); padding: 13px 17px; border-radius: 0 8px 8px 0;
+  margin: 18px 0; font-style: italic; color: var(--maroon); font-size: clamp(0.8rem,1.8vw,0.93rem); line-height: 1.7;
+}
+.specialties { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.specialty-tag {
+  background: rgba(232,84,26,0.1); color: var(--saffron); border: 1px solid rgba(232,84,26,0.3);
+  padding: 5px 12px; border-radius: 20px; font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.4vw,0.7rem);
+}
+
+/* ============================================================
+   SERVICES
+============================================================ */
+.services-section { background: linear-gradient(135deg,#1A0A00 0%,#2D1200 50%,#1A0A00 100%); position: relative; overflow: hidden; }
+.services-section::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 1px 1px,rgba(212,160,23,0.04) 1px,transparent 0); background-size:50px 50px; pointer-events:none; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(230px,100%),1fr)); gap: clamp(14px,3vw,24px); position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+.service-card { background: rgba(253,246,227,0.04); border: 1px solid rgba(212,160,23,0.22); border-radius: 14px; padding: clamp(20px,3vw,32px) clamp(16px,2.5vw,26px); text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+.service-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(to right,var(--saffron),var(--gold)); transform:scaleX(0); transition:transform 0.3s; }
+.service-card:hover { background:rgba(253,246,227,0.07); border-color:var(--gold); transform:translateY(-3px); box-shadow:0 10px 36px rgba(212,160,23,0.14); }
+.service-card:hover::before { transform:scaleX(1); }
+.service-icon { font-size: clamp(1.8rem,4vw,2.4rem); display:block; margin-bottom:12px; }
+.service-card h3 { font-family:'Cinzel',serif; font-size:clamp(0.68rem,1.5vw,0.88rem); letter-spacing:1.5px; color:var(--bright-gold); text-transform:uppercase; margin-bottom:10px; }
+.service-card p { color:rgba(253,246,227,0.68); font-size:clamp(0.76rem,1.5vw,0.87rem); line-height:1.7; }
+
+/* ============================================================
+   GALLERY
+============================================================ */
+.gallery-section { background: var(--light-bg); }
+.gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,2.5vw,20px); max-width:900px; margin:0 auto; }
+.gallery-item { border-radius:12px; overflow:hidden; border:2px solid var(--gold); box-shadow:0 6px 24px rgba(0,0,0,0.1); transition:transform 0.3s,box-shadow 0.3s; }
+.gallery-item:hover { transform:scale(1.02); box-shadow:0 12px 34px rgba(232,84,26,0.2); }
+.gallery-item img { width:100%; height:clamp(160px,25vw,300px); object-fit:cover; }
+.gallery-item.featured { grid-column:1/-1; }
+.gallery-item.featured img { height:clamp(200px,28vw,390px); object-position:center 20%; }
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact-section { background: var(--cream); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(26px,5vw,60px); max-width:1000px; margin:0 auto; align-items:start; }
+.contact-info h3 { font-family:'Cinzel Decorative',cursive; font-size:clamp(1.05rem,2.5vw,1.4rem); color:var(--dark); margin-bottom:20px; }
+.contact-item {
+  display:flex; align-items:center; gap:13px; margin-bottom:12px;
+  padding:12px 15px; background:#fff; border-radius:10px; border:1px solid rgba(212,160,23,0.2);
+  color:inherit; transition:all 0.3s; -webkit-tap-highlight-color:transparent;
+}
+.contact-item:hover { border-color:var(--saffron); box-shadow:0 4px 16px rgba(232,84,26,0.1); transform:translateX(4px); }
+.contact-icon { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.ci-phone     { background:linear-gradient(135deg,#4CAF50,#388E3C); }
+.ci-whatsapp  { background:linear-gradient(135deg,#25D366,#128C7E); }
+.ci-email     { background:linear-gradient(135deg,#EA4335,#D32F2F); }
+.ci-instagram { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.ci-maps      { background:linear-gradient(135deg,#4285F4,#34A853); }
+.contact-label { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:2px; color:var(--saffron); text-transform:uppercase; display:block; }
+.contact-value { color:var(--dark); font-size:clamp(0.8rem,1.8vw,0.9rem); font-weight:600; word-break:break-all; }
+
+.contact-form-box { background:#fff; border-radius:16px; padding:clamp(22px,4vw,36px); border:1px solid rgba(212,160,23,0.2); box-shadow:0 8px 36px rgba(0,0,0,0.07); }
+.contact-form-box h3 { font-family:'Cinzel',serif; font-size:clamp(0.63rem,1.4vw,0.75rem); letter-spacing:4px; color:var(--saffron); text-transform:uppercase; margin-bottom:16px; text-align:center; }
+.form-group { margin-bottom:13px; }
+.form-group input, .form-group textarea, .form-group select {
+  width:100%; padding:12px 14px; border:1px solid rgba(0,0,0,0.12); border-radius:8px;
+  font-family:'Lora',serif; font-size:clamp(0.8rem,1.8vw,0.9rem); color:var(--dark); background:#FAFAFA;
+  transition:border-color 0.3s; outline:none; appearance:none; -webkit-appearance:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--saffron); background:#fff; }
+.form-group textarea { height:88px; resize:vertical; }
+.submit-btn {
+  width:100%; padding:14px; background:linear-gradient(135deg,var(--saffron),var(--deep-saffron));
+  color:#fff; border:none; border-radius:8px; font-family:'Cinzel',serif;
+  font-size:clamp(0.68rem,1.5vw,0.8rem); letter-spacing:2.5px; text-transform:uppercase;
+  cursor:pointer; transition:all 0.3s; margin-top:4px; -webkit-tap-highlight-color:transparent;
+}
+.submit-btn:hover { box-shadow:0 6px 22px rgba(232,84,26,0.4); transform:translateY(-1px); }
+.submit-btn:active { transform:scale(0.98); }
+
+/* ============================================================
+   WHATSAPP FLOAT
+============================================================ */
+.whatsapp-float {
+  position:fixed; bottom:22px; right:22px; z-index:998;
+  width:56px; height:56px; background:linear-gradient(135deg,#25D366,#128C7E);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 18px rgba(37,211,102,0.5); transition:all 0.3s;
+  animation:float-bounce 3s ease-in-out infinite; -webkit-tap-highlight-color:transparent;
+}
+.whatsapp-float:hover { transform:scale(1.14); animation:none; box-shadow:0 8px 28px rgba(37,211,102,0.65); }
+@keyframes float-bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+.whatsapp-float svg { width:29px; height:29px; fill:#fff; }
+.wa-tooltip {
+  position:absolute; right:64px; background:var(--dark); color:#fff;
+  padding:6px 12px; border-radius:6px; font-family:'Cinzel',serif; font-size:0.68rem;
+  letter-spacing:1px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity 0.3s;
+}
+.whatsapp-float:hover .wa-tooltip { opacity:1; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer { background:var(--dark); color:rgba(253,246,227,0.7); text-align:center; padding:clamp(28px,6vw,48px) 5%; border-top:2px solid var(--maroon); }
+.footer-logo { font-family:'Cinzel Decorative',cursive; color:var(--bright-gold); font-size:clamp(0.88rem,2.5vw,1.2rem); margin-bottom:8px; }
+.footer-om { font-size:clamp(1.5rem,4vw,2rem); color:var(--gold); margin-bottom:8px; display:block; }
+footer p { font-size:clamp(0.73rem,1.8vw,0.85rem); line-height:1.8; }
+footer a { color:var(--gold); }
+footer a:hover { color:var(--bright-gold); }
+.footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:6px 18px; margin-top:8px; }
+.footer-links a { font-size:clamp(0.7rem,1.6vw,0.82rem); }
+.footer-blessings { margin-top:16px; font-size:clamp(0.65rem,1.4vw,0.76rem); opacity:0.42; letter-spacing:1px; }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+============================================================ */
+
+/* Large desktop tweaks */
+@media (min-width: 1400px) {
+  .hero-content { padding: 60px 10% 70px; }
+}
+
+/* Tablet landscape (900–1100px) */
+@media (max-width: 1100px) {
+  .hero-content { gap: 34px; padding: 38px 6% 52px; }
+  .hero-img-wrap { width: min(310px, 40vw); }
+}
+
+/* Tablet portrait (max 900px) */
+@media (max-width: 900px) {
+  .desktop-nav { display: none; }
+  .hamburger   { display: flex; }
+  .mobile-nav  { display: flex; }
+
+  .hero-content { flex-direction: column; text-align: center; padding: 38px 6% 52px; gap: 28px; }
+  .hero-img-wrap { width: min(280px, 68vw); margin: 0 auto; }
+  .hero-tagline  { text-align: left; }
+  .hero-actions  { justify-content: center; }
+  .hero-desc     { font-size: 0.87rem; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img-wrap { max-width: 400px; margin: 0 auto; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile (max 600px) */
+@media (max-width: 600px) {
+  :root { --header-h: 58px; }
+
+  .logo { font-size: 0.7rem; }
+  .logo span { font-size: 0.52rem; }
+
+  .hero-content { padding: 28px 5% 44px; gap: 24px; }
+  .hero-img-wrap { width: min(230px, 72vw); }
+  .hero-img-frame img { height: clamp(240px, 62vw, 320px); }
+  .hero-badge { font-size: 0.52rem; padding: 5px 9px; top: -9px; right: -8px; }
+
+  .stats-bar { gap: 16px 28px; padding: 18px 5%; }
+  .stat-num { font-size: 1.4rem; }
+  .stat-label { font-size: 0.52rem; letter-spacing: 1.5px; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 20px 18px; }
+
+  .gallery-grid { grid-template-columns: 1fr; gap: 12px; }
+  .gallery-item.featured { grid-column: 1; }
+  .gallery-item img,
+  .gallery-item.featured img { height: clamp(180px, 52vw, 280px); }
+
+  .contact-info h3 { font-size: 1.05rem; }
+  .contact-form-box { padding: 20px 16px; }
+  .contact-item { padding: 11px 12px; gap: 11px; }
+  .contact-icon { width: 38px; height: 38px; font-size: 1rem; }
+
+  .whatsapp-float { width: 50px; height: 50px; bottom: 16px; right: 16px; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
+  .wa-tooltip { display: none; }
+
+  footer { padding: 24px 5%; }
+  .footer-links { flex-direction: column; gap: 4px; align-items: center; }
+
+  .about-ornament { width: 54px; height: 54px; font-size: 1.4rem; bottom: -12px; right: -10px; }
+  .about-img-frame { box-shadow: 6px 6px 0 var(--saffron), 0 16px 36px rgba(0,0,0,0.12); }
+}
+
+/* Very small screens (max 380px) */
+@media (max-width: 380px) {
+  .hero-title { font-size: 1.32rem; }
+  .hero-img-wrap { width: 84vw; }
+  .btn-primary, .btn-secondary { font-size: 0.62rem; padding: 10px 15px; letter-spacing: 0.8px; }
+  .specialty-tag { font-size: 0.58rem; padding: 4px 9px; }
+  section { padding: 38px 4%; }
+  .hero-content { padding: 24px 4% 38px; }
+}
+
+/* Touch / tap state improvements */
+@media (hover: none) {
+  .btn-primary:active  { transform: scale(0.97); }
+  .btn-secondary:active { transform: scale(0.97); }
+  .service-card:active { transform: scale(0.98); }
+  .gallery-item:active { transform: scale(1.01); }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+  <div class="logo">
+    Pandit Mohit Kala
+    <span>Vedic Astrologer &amp; Purohit</span>
+  </div>
+
+  <nav class="desktop-nav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" role="navigation">
+  <a href="#about"    onclick="closeMenu()">🕉️ &nbsp;About</a>
+  <a href="#services" onclick="closeMenu()">🙏 &nbsp;Services</a>
+  <a href="#gallery"  onclick="closeMenu()">📸 &nbsp;Gallery</a>
+  <a href="#contact"  onclick="closeMenu()">📞 &nbsp;Contact</a>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <img src="mohitkalaheaderimg.jpeg" alt="Pandit Mohit Kala performing sacred puja ceremony">
+        
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="hero-om">ॐ</div>
+      <div class="hero-sub">✦ Vedic Traditions &nbsp;✦&nbsp; Spiritual Guidance ✦</div>
+      <h1 class="hero-title">
+        Pandit
+        <span>Mohit Kala</span>
+      </h1>
+      <p class="hero-tagline">"Connecting Souls to the Divine through Ancient Wisdom"</p>
+      <p class="hero-desc">
+        A dedicated Vedic Purohit and Jyotish Acharya serving devotees across all auspicious ceremonies. From Griha Pravesh to Navgrah Puja, from Kundali readings to sacred Yagnas — experience authentic Sanatan Dharma rituals performed with devotion and precision.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/919870826033?text=Jai+Shri+Ram!+I+would+like+to+book+a+puja." class="btn-primary" target="_blank" rel="noopener">
+           Book on WhatsApp
+        </a>
+        <a href="#services" class="btn-secondary"> View Services</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== STATS ==================== -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">500+</span>
+    <div class="stat-label">Ceremonies Done</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">1000+</span>
+    <div class="stat-label">Happy Devotees</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">8+</span>
+    <div class="stat-label">Years Experience</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">50+</span>
+    <div class="stat-label">Types of Puja</div>
+  </div>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+
+    <div class="about-img-wrap">
+      <div class="about-img-frame">
+        <img src="mohitkalamiddle1img.jpeg" alt="Pt. Mohit Kala">
+      </div>
+      <div class="about-ornament">🪔</div>
+    </div>
+
+    <div class="about-text">
+      <h3>✦ About the Pandit ✦</h3>
+      <h2>Pandit Mohit Kala</h2>
+      <p>
+        Pandit Mohit Kala is a revered Vedic Purohit and Jyotish practitioner with deep-rooted knowledge of Sanatan Hindu traditions. Trained in the sacred scriptures and rituals, he brings authenticity, devotion, and precision to every ceremony he conducts.
+      </p>
+      <p>
+        Specializing in both astrology and religious ceremonies, Pandit Mohit ji serves devotees seeking guidance for life's most important decisions — from auspicious Muhurtas to complex Graha Shanti rituals.
+      </p>
+      <div class="about-highlight">
+        "Every prayer, every mantra, every ritual is performed with complete dedication and the purest intent — to invoke the divine blessings for you and your family."
+      </div>
+      <div class="specialties">
+        <span class="specialty-tag">🔯 Vedic Astrology</span>
+        <span class="specialty-tag">🙏 Puja &amp; Havan</span>
+        <span class="specialty-tag">📿 Kundali Reading</span>
+        <span class="specialty-tag">🏠 Griha Pravesh</span>
+        <span class="specialty-tag">💒 Vivah Sanskar</span>
+        <span class="specialty-tag">⭐ Navgrah Puja</span>
+        <span class="specialty-tag">🔱 Rudrabhishek</span>
+        <span class="specialty-tag">🌿 Satyanarayan Katha</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <span class="section-badge">✦ Sacred Offerings ✦</span>
+    <h2 class="section-title light">Spiritual Services</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🪷</span>
+      <h3>Kundali &amp; Horoscope</h3>
+      <p>Detailed birth chart analysis, Janam Kundali preparation, Dasha predictions, and life guidance based on authentic Vedic astrology.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔥</span>
+      <h3>Havan &amp; Yagna</h3>
+      <p>Sacred fire rituals for prosperity, health, and cleansing. Navgrah Havan, Vastu Shanti Havan, and customized Yagnas with Vedic mantras.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <h3>Griha Pravesh</h3>
+      <p>Complete Griha Pravesh puja with Vastu Puja, Satyanarayan Katha, and all auspicious rituals for prosperity and positive energy.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💒</span>
+      <h3>Vivah Sanskar</h3>
+      <p>Traditional Hindu wedding ceremonies with all 16 Shodasha Samskaras, Saptapadi, and complete Vedic wedding rituals.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⭐</span>
+      <h3>Graha Shanti Puja</h3>
+      <p>Navgrah Shanti, Shani Puja, Rahu-Ketu remedies, and planet-specific rituals to pacify malefic planets.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔱</span>
+      <h3>Rudrabhishek</h3>
+      <p>Authentic Rudrabhishek, Mahamrityunjaya Havan, and Shiva rituals for health, longevity, and moksha.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌟</span>
+      <h3>Muhurat &amp; Guidance</h3>
+      <p>Auspicious Muhurat for business, travel, marriage, and property purchase based on Vedic Panchang.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📿</span>
+      <h3>Vastu Shastra</h3>
+      <p>Vastu consultation and remedies for homes, offices, and commercial spaces with energy correction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <span class="section-badge">✦ Divine Moments ✦</span>
+    <h2 class="section-title">Puja in Practice</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item featured">
+      <img src="mohitkalapractice.jpeg" alt="Conducting sacred puja ceremony">
+    </div>
+    <div class="gallery-item">
+      <img src="mohitkalagallery2.jpeg" alt="Pandit Mohit Kala in Namaste posture">
+    </div>
+    <div class="gallery-item">
+      <img src="mohitkalagallery3.jpeg" alt="Pandit Mohit Kala seated">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <span class="section-badge">✦ Reach Out ✦</span>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="section-line"></div>
+    <p style="margin-top:13px;color:#6B4020;font-size:clamp(0.78rem,1.8vw,0.92rem);">Book a ceremony, schedule a consultation, or seek guidance</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <h3>Connect with Pandit Ji</h3>
+
+      <a href="tel:+919870826033" class="contact-item">
+        <div class="contact-icon ci-phone">📞</div>
+        <div>
+          <span class="contact-label">Call for Booking</span>
+          <div class="contact-value">+91 9870826033</div>
+        </div>
+      </a>
+
+      <a href="https://wa.me/919870826033?text=Jai+Shri+Ram!+I+would+like+to+enquire." class="contact-item" target="_blank" rel="noopener">
+        <div class="contact-icon ci-whatsapp">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </div>
+        <div>
+          <span class="contact-label">WhatsApp</span>
+          <div class="contact-value">+91 9870826033</div>
+        </div>
+      </a>
+
+      <a href="mailto:mkala7067@gmail.com" class="contact-item">
+        <div class="contact-icon ci-email">✉️</div>
+        <div>
+          <span class="contact-label">Email</span>
+          <div class="contact-value">mkala7067@gmail.com</div>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/mha_maya_astro?igsh=MmthcW1pcnIzNGZ4" class="contact-item" target="_blank" rel="noopener">
+        <div class="contact-icon ci-instagram">📸</div>
+        <div>
+          <span class="contact-label">Instagram</span>
+          <div class="contact-value">@mha_maya_astro</div>
+        </div>
+      </a>
+
+      <a href="https://maps.app.goo.gl/KEbSrmYtwh49RQLh9?g_st=ac" class="contact-item" target="_blank" rel="noopener">
+        <div class="contact-icon ci-maps">📍</div>
+        <div>
+          <span class="contact-label">Location</span>
+          <div class="contact-value">View on Google Maps</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="contact-form-box">
+      <h3>✦ Send an Enquiry ✦</h3>
+      <div class="form-group">
+        <input type="text" id="f-name" placeholder="Your Full Name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <input type="tel" id="f-phone" placeholder="Your Mobile Number" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <select id="f-service">
+          <option value="" disabled selected>Select Service Required</option>
+          <option>Kundali / Horoscope Reading</option>
+          <option>Griha Pravesh Puja</option>
+          <option>Vivah Sanskar (Wedding)</option>
+          <option>Havan / Yagna</option>
+          <option>Navgrah Shanti Puja</option>
+          <option>Rudrabhishek</option>
+          <option>Satyanarayan Katha</option>
+          <option>Vastu Consultation</option>
+          <option>Muhurat Selection</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea id="f-msg" placeholder="Your message or enquiry details..."></textarea>
+      </div>
+      <button class="submit-btn" id="submitBtn">🙏 Send via WhatsApp</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <div class="footer-logo">Pandit Mohit Kala</div>
+  <p>Vedic Purohit &nbsp;|&nbsp; Jyotish Acharya &nbsp;|&nbsp; Spiritual Guide</p>
+  <div class="footer-links">
+    <a href="tel:+919870826033">📞 +91 9870826033</a>
+    <a href="mailto:mkala7067@gmail.com">✉️ mkala7067@gmail.com</a>
+    <a href="https://www.instagram.com/mha_maya_astro" target="_blank" rel="noopener">📸 @mha_maya_astro</a>
+    <a href="https://maps.app.goo.gl/KEbSrmYtwh49RQLh9?g_st=ac" target="_blank" rel="noopener">📍 Google Maps</a>
+  </div>
+  <p class="footer-blessings">🔱 Har Har Mahadev &nbsp;🔱&nbsp; Jai Shri Ram &nbsp;🔱&nbsp; Jai Mata Di 🔱</p>
+</footer>
+
+<!-- ==================== WHATSAPP FLOAT ==================== -->
+<a href="https://wa.me/919870826033?text=Jai+Shri+Ram!+I+would+like+to+book+a+puja+or+consultation."
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <div class="wa-tooltip">Chat on WhatsApp</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+  /* --- Hamburger menu --- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', e => {
+    if (mobileNav.classList.contains('open') &&
+        !mobileNav.contains(e.target) &&
+        !hamburger.contains(e.target)) closeMenu();
+  });
+
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+
+  /* --- Smooth scroll accounting for fixed header --- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const h = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 65;
+      window.scrollTo({ top: target.offsetTop - h, behavior: 'smooth' });
+    });
+  });
+
+  /* --- WhatsApp form submit --- */
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const name    = document.getElementById('f-name').value.trim()    || '[Name not given]';
+    const phone   = document.getElementById('f-phone').value.trim()   || '[Phone not given]';
+    const service = document.getElementById('f-service').value        || '[Service not selected]';
+    const msg     = document.getElementById('f-msg').value.trim()     || '[No message]';
+    const text = `Jai Shri Ram! My name is ${name}, mobile: ${phone}. Service needed: ${service}. Message: ${msg}`;
+    window.open('https://wa.me/919870826033?text=' + encodeURIComponent(text), '_blank');
+  });
+
+  /* --- Scroll reveal animation --- */
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.service-card, .gallery-item, .contact-item, .stat-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      observer.observe(el);
+    });
+  }
+</script>
+</body>
+</html>
